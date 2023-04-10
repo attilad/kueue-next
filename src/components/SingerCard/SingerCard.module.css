@@ -5,10 +5,27 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 10px;
-    text-align: center;
     display: flex;
+    flex-direction: column;
+  }
+
+  .singerLabel {
+    text-align: left;
+    background-color: black;
+    color: gold;
+    margin: -20px -20px 20px -20px;
+    border-bottom: 1px solid gold;
+    border-radius: 5px 5px 0 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .singerWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-around;
   }
   
   .singerName {

@@ -74,11 +74,18 @@ export const useModifyQueue = () => {
     await addSinger.mutateAsync({ name, priority: true });
   };
 
+  const resetQueue = useMutation({
+    mutationFn: () => {
+      return axios.post(`${API_URL}/reset`);
+    }
+  });
+
   return {
     addSinger: (name: string, priority: boolean = false) =>
       addSinger.mutate({ name, priority }),
     removeSinger: (name: string) => removeSinger.mutate(name),
     nextSinger: () => nextSinger.mutate(),
     bumpSinger,
+    resetQueue: () => resetQueue.mutate()
   };
 };
