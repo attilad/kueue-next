@@ -1,0 +1,32 @@
+.singerCard {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .singerName {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .commands {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .button {
+    background-color: #1A181B; /* Green */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+  }

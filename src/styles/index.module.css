@@ -1,10 +1,11 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  min-width: 420px;
 }
 
 .description {
@@ -39,11 +40,25 @@
   font-family: var(--font-mono);
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(33%, auto));
-  width: var(--max-width);
-  max-width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.title {
+  font-size: 64px;
+  color: whitesmoke;
+  text-align: center;
 }
 
 .card {
@@ -181,9 +196,12 @@
 
   .grid {
     grid-template-columns: 1fr;
-    margin-bottom: 120px;
-    max-width: 320px;
     text-align: center;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 2.5rem;
   }
 
   .card {

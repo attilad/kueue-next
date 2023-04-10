@@ -1,0 +1,38 @@
+/* components/SingerCard.module.css */
+.singerCard {
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .singerName {
+    font-family: 'Philosopher';
+    font-size: 55px;
+    font-weight: bold;
+  }
+  
+  .current {
+    background-color: #d5167a;
+  }
+
+  .current > .singerName {
+    color: #ffffff;
+  }
+
+  .next {
+    background-color: #2CDA9D;
+  }
+
+  .singerIcon {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    font-size: 32px;
+    color: gold;
+  }
+  

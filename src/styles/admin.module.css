@@ -1,0 +1,42 @@
+.button {
+  background-color: #2cda9d; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.container {
+  padding: 1rem;
+  color: black;
+  background-color: white;
+  min-height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.commands {
+  display: flex;
+  flex-direction: column;
+}
+
+.singerList {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
