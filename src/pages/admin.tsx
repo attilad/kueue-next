@@ -3,6 +3,11 @@ import { AdminSingerCard, BumpSingerModal, ConfirmResetModal } from "@/component
 import styles from "@/styles/admin.module.css";
 import { useState } from "react";
 import { ConfirmRemove, NewSingerModal } from "@/components";
+import { Inter } from "next/font/google";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPlus, faUsersSlash, faArrowRight  } from "@fortawesome/free-solid-svg-icons";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function AdminPage() { 
   const { singers, isLoading } = useShowSingers();
@@ -57,10 +62,12 @@ export default function AdminPage() {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${inter.className}`}>
         <div className={styles.column}>
           <button className={styles.button} onClick={() => nextSinger()} disabled={!singers || singers?.length < 2}>
+          <FontAwesomeIcon icon={faArrowRight} />
             Next Singer
+            
           </button>
         </div>
         <div className={styles.column}>
@@ -75,9 +82,11 @@ export default function AdminPage() {
         </div>
         <div className={styles.column}>
           <button className={styles.button} onClick={() => setShowNewSinger(true)}>
+            <FontAwesomeIcon icon={faUserPlus} />
             Add New Singer
           </button>
           <button className={`${styles.button} ${styles.warning}`} onClick={() => handleReset()}>
+            <FontAwesomeIcon icon={faUsersSlash} />
             CLEAR QUEUE
           </button>
         </div>

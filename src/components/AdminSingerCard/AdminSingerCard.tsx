@@ -1,9 +1,11 @@
 // components/SingerCard.tsx
 import React from "react";
 import styles from "./AdminSingerCard.module.css";
-import { Philosopher } from "next/font/google";
+import { Inter } from "next/font/google";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark, faClockRotateLeft } from "@fortawesome/free-solid-svg-icons";
 
-const philosopher = Philosopher({ weight: "400", subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 interface SingerCardProps {
   name: string;
@@ -21,11 +23,11 @@ const AdminSingerCard = ({ name, onRemove, onBump }: SingerCardProps) => {
   };
 
   return (
-    <div className={styles.singerCard}>
+    <div className={`${styles.singerCard} ${inter.className}`}>
       <div className={styles.singerName}>{name}</div>
       <div className={styles.commands}>
-        <button className={styles.button} onClick={handleRemove}>x</button>
-        <button className={styles.button} onClick={handleBump}>^</button>
+        <button className={styles.button} onClick={handleBump}><FontAwesomeIcon icon={faClockRotateLeft} size="xl" /></button>
+        <button className={styles.button} onClick={handleRemove}><FontAwesomeIcon icon={faXmark} size="xl" /></button>
       </div>
     </div>
   );
