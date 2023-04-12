@@ -14,7 +14,7 @@
     background-color: black;
     color: gold;
     margin: -20px -20px 20px -20px;
-    border-bottom: 1px solid gold;
+    border-bottom: 2px solid gold;
     border-radius: 5px 5px 0 0;
     padding: 10px;
     display: flex;
@@ -29,17 +29,13 @@
   }
   
   .singerName {
-    font-family: 'Philosopher';
     font-size: 55px;
     font-weight: bold;
   }
   
   .current {
     background-color: #d5167a;
-  }
-
-  .current > .singerName {
-    color: #ffffff;
+    color: white;
   }
 
   .next {

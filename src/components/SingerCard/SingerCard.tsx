@@ -21,7 +21,9 @@ const SingerCard = ({ name, isCurrent, isNext }: SingerCardProps) => {
 
   if (isCurrent) {
     return (
-      <div className={`${styles.singerCard} ${styles.current}`}>
+      <div
+        className={`${styles.singerCard} ${styles.current}`}
+      >
         <div className={styles.singerLabel}>Now Singing:</div>
         <div className={styles.singerWrapper}>
           <FontAwesomeIcon icon={faMusic} color="gold" size="xl" beat />
@@ -36,7 +38,9 @@ const SingerCard = ({ name, isCurrent, isNext }: SingerCardProps) => {
 
   if (isNext) {
     return (
-      <div className={`${styles.singerCard} ${styles.next}`}>
+      <div
+        className={`${styles.singerCard} ${styles.next}`}
+      >
         <div className={styles.singerLabel}>
           <div>Up Next:</div>
           <FontAwesomeIcon icon={faBell} color="gold" size="lg" shake />
@@ -47,7 +51,7 @@ const SingerCard = ({ name, isCurrent, isNext }: SingerCardProps) => {
   }
 
   return (
-    <div className={cardClassName}>
+    <div className={`${cardClassName}`}>
       <div className={nameLabelClassName}>{name}</div>
     </div>
   );
