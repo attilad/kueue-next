@@ -2,8 +2,8 @@
 const nextConfig = {
   experimental: {
     appDir: false,
-    outputStandalone: true,
-  }
+  },
+  output: 'standalone'
 }
 
 module.exports = nextConfig

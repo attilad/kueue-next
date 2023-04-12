@@ -50,16 +50,12 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
-COPY --from=builder --chown=nextjs:nodejs /app/dist/server ./kueue-server/
-
 USER nextjs
 
 EXPOSE 3000
-EXPOSE 3030
 
 ENV PORT 3000
-ENV QUEUE_PORT 3030
+ENV NEXT_PUBLIC_KUEUE_SERVER //kueue-server-lite.us-east-1.elasticbeanstalk.com/
 
 
-CMD ["yarn", "prod"]
+CMD ["node", "server.js"]
