@@ -3,6 +3,7 @@ import React from "react";
 import Modal from "react-modal";
 
 import styles from "@/styles/modal.module.css";
+import { defaultStyle } from "@/styles/reactModalStyle";
 
 interface BumpSingerModalProps {
   isOpen: boolean;
@@ -22,26 +23,7 @@ export const BumpSingerModal = ({
       isOpen={isOpen}
       onRequestClose={onCancel}
       contentLabel="Bump Singer"
-      style={{
-        overlay: {
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        },
-        content: {
-          position: "relative",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: "4px",
-          padding: "2rem",
-          outline: "none",
-          maxWidth: "90%",
-          maxHeight: "90%",
-        },
-      }}
+      style={defaultStyle}
     >
       <div className={styles.content}>
         <h2>Are you sure you want to bump {singer}?</h2>

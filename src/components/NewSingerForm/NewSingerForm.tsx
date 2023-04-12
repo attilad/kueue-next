@@ -2,6 +2,7 @@ import { useRef } from "react";
 import Modal from "react-modal";
 
 import styles from "@/styles/modal.module.css";
+import { defaultStyle } from "@/styles/reactModalStyle";
 
 interface NewSingerModalProps {
   isOpen: boolean;
@@ -36,26 +37,7 @@ export const NewSingerModal = ({
       isOpen={isOpen}
       onRequestClose={onCancel}
       contentLabel="Add Singer"
-      style={{
-        overlay: {
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        },
-        content: {
-          position: "relative",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: "4px",
-          padding: "2rem",
-          outline: "none",
-          maxWidth: "90%",
-          maxHeight: "90%",
-        },
-      }}
+      style={defaultStyle}
     >
       <h2>New Singer</h2>
       <div className={styles.content}>
