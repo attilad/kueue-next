@@ -56,4 +56,7 @@ EXPOSE 3000
 
 ENV PORT 3000
 
+ENV WS_URL ws://kueue-server.us-east-1.elasticbeanstalk.com
+ENV API_URL http://kueue-server.us-east-1.elasticbeanstalk.com
+
 CMD ["node", "server.js"]
