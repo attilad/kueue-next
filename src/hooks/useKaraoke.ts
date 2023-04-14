@@ -2,7 +2,10 @@ import axios from "axios";
 import { useWebSocket } from "./useWebSocket";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-const API_URL = process.env.NEXT_PUBLIC_KUEUE_SERVER || '//kueue-server-lite.us-east-1.elasticbeanstalk.com';
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig(); 
+const { WS_URL, API_URL } = publicRuntimeConfig;
 
 export const useShowSingers = () => {
   const queryClient = useQueryClient();
@@ -18,7 +21,7 @@ export const useShowSingers = () => {
     },
   });
 
-  useWebSocket(`ws:${API_URL}`, (message: MessageEvent) => {
+  useWebSocket(WS_URL, (message: MessageEvent) => {
     const updatedSingers = JSON.parse(message.data);
     queryClient.setQueryData(["singers"], updatedSingers);
     queryClient.invalidateQueries(["currentSinger"]);
