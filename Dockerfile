@@ -55,7 +55,5 @@ USER nextjs
 EXPOSE 3000
 
 ENV PORT 3000
-ENV NEXT_PUBLIC_KUEUE_SERVER //kueue-server-lite.us-east-1.elasticbeanstalk.com/
-
 
 CMD ["node", "server.js"]
