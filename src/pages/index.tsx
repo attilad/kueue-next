@@ -8,8 +8,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 import { useShowSingers } from "../hooks/useKaraoke";
 import { SingerCard } from "@/components";
+import { useSingerSubscription } from "@/hooks/useSocket";
 
 export default function Home() {
+  useSingerSubscription();
   const { singers, isLoading } = useShowSingers();
 
   return (

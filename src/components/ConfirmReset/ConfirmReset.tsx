@@ -22,6 +22,7 @@ export const ConfirmResetModal = ({
       onRequestClose={onCancel}
       contentLabel="Reset the Queue"
       style={defaultStyle}
+      ariaHideApp={false}
     >
       <div className={styles.content}>
         <h2>Are you sure you want to completely reset the Queue?</h2>

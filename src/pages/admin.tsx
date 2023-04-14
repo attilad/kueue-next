@@ -6,10 +6,12 @@ import { ConfirmRemove, NewSingerModal } from "@/components";
 import { Inter } from "next/font/google";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus, faUsersSlash, faArrowRight  } from "@fortawesome/free-solid-svg-icons";
+import { useSingerSubscription } from "@/hooks/useSocket";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function AdminPage() { 
+  useSingerSubscription();
   const { singers, isLoading } = useShowSingers();
   const { nextSinger, addSinger, removeSinger, bumpSinger, resetQueue } = useModifyQueue();
   const [ singerToRemove, setSingerToRemove ] = useState<string | undefined>(undefined);

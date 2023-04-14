@@ -24,6 +24,7 @@ export const BumpSingerModal = ({
       onRequestClose={onCancel}
       contentLabel="Bump Singer"
       style={defaultStyle}
+      ariaHideApp={false}
     >
       <div className={styles.content}>
         <h2>Are you sure you want to bump {singer}?</h2>

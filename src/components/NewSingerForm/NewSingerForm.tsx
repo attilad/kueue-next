@@ -38,6 +38,7 @@ export const NewSingerModal = ({
       onRequestClose={onCancel}
       contentLabel="Add Singer"
       style={defaultStyle}
+      ariaHideApp={false}
     >
       <h2>New Singer</h2>
       <div className={styles.content}>

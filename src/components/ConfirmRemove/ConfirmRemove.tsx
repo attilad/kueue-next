@@ -24,6 +24,7 @@ export const ConfirmationModal = ({
       onRequestClose={onCancel}
       contentLabel="Remove Singer"
       style={defaultStyle}
+      ariaHideApp={false}
     >
       <div className={styles.content}>
         <h2>Are you sure you want to remove {singer}?</h2>

@@ -1,12 +1,9 @@
 import axios from "axios";
-import { useWebSocket } from "./useWebSocket";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-const API_URL = 'http://kueue-server.us-east-1.elasticbeanstalk.com';
+const API_URL = process.env.NODE_ENV === 'production' ? 'http://kueue-server.us-east-1.elasticbeanstalk.com' : 'http://localhost:3030';
 
 export const useShowSingers = () => {
-  const queryClient = useQueryClient();
-
   const { data, ...queryState } = useQuery({
     queryKey: ["singers"],
     queryFn: async () => {
@@ -16,12 +13,6 @@ export const useShowSingers = () => {
 
       return response.data.singers;
     },
-  });
-
-  useWebSocket('ws://kueue-server.us-east-1.elasticbeanstalk.com', (message: MessageEvent) => {
-    const updatedSingers = JSON.parse(message.data);
-    queryClient.setQueryData(["singers"], updatedSingers);
-    queryClient.invalidateQueries(["currentSinger"]);
   });
 
   return { singers: data, ...queryState };
@@ -48,7 +39,7 @@ interface AddSingerProps {
 }
 
 export const useModifyQueue = () => {
-  const nextSinger = useMutation({
+    const nextSinger = useMutation({
     mutationFn: () => {
       return axios.post(`${API_URL}/next`);
     },
