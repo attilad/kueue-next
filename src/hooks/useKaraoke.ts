@@ -72,10 +72,11 @@ export const useModifyQueue = () => {
     },
   });
 
-  const bumpSinger = async (name: string) => {
-    await removeSinger.mutateAsync(name);
-    await addSinger.mutateAsync({ name, priority: true });
-  };
+  const bumpSinger = useMutation({
+    mutationFn: (name: string) => {
+      return axios.post(`${API_URL}/bump`, { name });
+    },
+  });
 
   const resetQueue = useMutation({
     mutationFn: () => {
@@ -88,7 +89,7 @@ export const useModifyQueue = () => {
       addSinger.mutate({ name, priority }),
     removeSinger: (name: string) => removeSinger.mutate(name),
     nextSinger: () => nextSinger.mutate(),
-    bumpSinger,
+    bumpSinger: (name: string) => bumpSinger.mutate(name),
     resetQueue: () => resetQueue.mutate()
   };
 };
