@@ -1,0 +1,36 @@
+.button {
+  background-color: rgb(var(--default-button-rgb)); /* Green */
+  border: 1px solid rgb(var(--default-button-rgb));
+  border-radius: 8px;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 12px;
+  font-size: 16px;
+  min-width: 92px;
+}
+
+.button:disabled {
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  color: #666;
+}
+
+.warning {
+  background-color: red;
+  border: 1px solid red;
+}
+
+.primary {
+  background-color: rgb(var(--primary-button-rgb));
+  border: 1px solid rgb(var(--primary-button-rgb));
+}
+
+.secondary {
+  background-color: white;
+  border: 1px solid #333;
+  color: #333;
+}

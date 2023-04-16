@@ -9,6 +9,10 @@
   --background-start-rgb: 26, 24, 27;
   --background-end-rgb: 213, 22, 122;
 
+  --primary-button-rgb: 58, 134, 255;
+  --warning-button-rgb: 255, 0, 0;
+  --default-button-rgb: 44, 218, 157;
+
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
     #16abff33 0deg,

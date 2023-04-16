@@ -1,7 +1,10 @@
 import axios from "axios";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
-const API_URL = process.env.NODE_ENV === 'production' ? 'http://kueue-server.us-east-1.elasticbeanstalk.com' : 'http://localhost:3030';
+const API_URL =
+  process.env.NODE_ENV === "production"
+    ? "http://kueue-server.us-east-1.elasticbeanstalk.com"
+    : "http://localhost:3030";
 
 export const useShowSingers = () => {
   const { data, ...queryState } = useQuery({
@@ -39,9 +42,15 @@ interface AddSingerProps {
 }
 
 export const useModifyQueue = () => {
-    const nextSinger = useMutation({
+  const nextSinger = useMutation({
     mutationFn: () => {
       return axios.post(`${API_URL}/next`);
+    },
+  });
+
+  const previousSinger = useMutation({
+    mutationFn: () => {
+      return axios.post(`${API_URL}/back`);
     },
   });
 
@@ -51,6 +60,12 @@ export const useModifyQueue = () => {
         priority ? `${API_URL}/add-priority` : `${API_URL}/add`,
         { name }
       );
+    },
+  });
+
+  const addSingers = useMutation<string[], unknown, string[]>({
+    mutationFn: (names) => {
+      return axios.post(`${API_URL}/add-many`, { names });
     },
   });
 
@@ -69,7 +84,7 @@ export const useModifyQueue = () => {
   const resetQueue = useMutation({
     mutationFn: () => {
       return axios.post(`${API_URL}/reset`);
-    }
+    },
   });
 
   return {
@@ -77,7 +92,8 @@ export const useModifyQueue = () => {
       addSinger.mutate({ name, priority }),
     removeSinger: (name: string) => removeSinger.mutate(name),
     nextSinger: () => nextSinger.mutate(),
+    previousSinger: () => previousSinger.mutate(),
     bumpSinger: (name: string) => bumpSinger.mutate(name),
-    resetQueue: () => resetQueue.mutate()
+    resetQueue: () => resetQueue.mutate(),
   };
 };
