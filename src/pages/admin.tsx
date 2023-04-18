@@ -1,9 +1,5 @@
 import { useModifyQueue, useShowSingers } from "@/hooks/useKaraoke";
-import {
-  ConfirmResetModal,
-  AdminButton,
-  SingerCommands,
-} from "@/components";
+import { ConfirmResetModal, AdminButton, SingerCommands } from "@/components";
 import styles from "@/styles/admin.module.css";
 import { useState } from "react";
 import { NewSingerModal } from "@/components";
@@ -23,12 +19,8 @@ const inter = Inter({ subsets: ["latin"] });
 export default function AdminPage() {
   useSingerSubscription();
   const { singers } = useShowSingers();
-  const {
-    nextSinger,
-    previousSinger,
-    addSinger,
-    resetQueue,
-  } = useModifyQueue();
+  const { nextSinger, previousSinger, addSinger, resetQueue } =
+    useModifyQueue();
   const [singerToModify, setSingerToModify] = useState<string | undefined>(
     undefined
   );
@@ -63,27 +55,28 @@ export default function AdminPage() {
 
   return (
     <div className={`${styles.container} ${inter.className}`}>
-      <SingerCommands show={singerToModify !== undefined} singer={singerToModify ?? ""} onClose={cancelModify} />
+      <SingerCommands
+        show={singerToModify !== undefined}
+        singer={singerToModify ?? ""}
+        onClose={cancelModify}
+      />
       <div className={styles.column}>
         <div className={styles.row}>
           <AdminButton
-            label="Back"
             icon={<FontAwesomeIcon icon={faArrowLeft} />}
             onClick={() => previousSinger()}
             disabled={!singers || singers?.length < 2}
           />
-          <div className={styles.group}>
-            <AdminButton
-              icon={<FontAwesomeIcon icon={faUserPlus} />}
-              onClick={() => setShowNewSinger(true)}
-            />
-            <AdminButton
-              label="Next Singer"
-              icon={<FontAwesomeIcon icon={faArrowRight} />}
-              onClick={() => nextSinger()}
-              disabled={!singers || singers?.length < 2}
-            />
-          </div>
+          <AdminButton
+            variant="primary"
+            icon={<FontAwesomeIcon icon={faUserPlus} />}
+            onClick={() => setShowNewSinger(true)}
+          />
+          <AdminButton
+            icon={<FontAwesomeIcon icon={faArrowRight} />}
+            onClick={() => nextSinger()}
+            disabled={!singers || singers?.length < 2}
+          />
         </div>
       </div>
       <div className={styles.column}>
