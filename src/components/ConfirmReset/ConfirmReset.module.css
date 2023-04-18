@@ -1,0 +1,12 @@
+.confirmButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2rem 1rem 0;
+}
+
+.description {
+    font-size: 1.2rem;
+    margin: 1rem;
+    padding: 0.5rem;
+}

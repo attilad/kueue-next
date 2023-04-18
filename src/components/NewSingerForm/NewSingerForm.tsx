@@ -1,8 +1,7 @@
 import { useRef } from "react";
-import Modal from "react-modal";
+import { Modal, AdminButton } from "@/components";
 
-import styles from "@/styles/modal.module.css";
-import { defaultStyle } from "@/styles/reactModalStyle";
+import styles from "./NewSingerForm.module.css";
 
 interface NewSingerModalProps {
   isOpen: boolean;
@@ -18,8 +17,7 @@ export const NewSingerModal = ({
   const nameInputRef = useRef<HTMLInputElement>(null);
   const priorityInputRef = useRef<HTMLInputElement>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     const name = nameInputRef.current?.value;
     if (!name) return;
 
@@ -33,15 +31,8 @@ export const NewSingerModal = ({
   };
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onCancel}
-      contentLabel="Add Singer"
-      style={defaultStyle}
-      ariaHideApp={false}
-    >
-      <h2>New Singer</h2>
-      <div className={styles.content}>
+    <Modal show={isOpen} onClose={onCancel} title="Add Singer">
+      <div className={styles.container}>
         <div className={styles.form}>
           <div className={styles.formInput}>
             <label htmlFor="name" className={styles.label}>
@@ -67,15 +58,12 @@ export const NewSingerModal = ({
           </div>
         </div>
         <div className={styles.actions}>
-          <button
-            className={`${styles.button} ${styles.primary}`}
-            onClick={handleSubmit}
-          >
-            Add
-          </button>
-          <button className={styles.button} onClick={onCancel}>
-            Cancel
-          </button>
+          <AdminButton variant="secondary" onClick={onCancel} label="Cancel" />
+          <AdminButton
+            variant="primary"
+            onClick={() => handleSubmit()}
+            label="Submit"
+          />
         </div>
       </div>
     </Modal>

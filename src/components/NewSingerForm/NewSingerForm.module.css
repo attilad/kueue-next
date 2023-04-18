@@ -1,64 +1,38 @@
-/* components/KaraokeForm.module.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
 .form {
-    display: flex;
-    flex-direction: column;
-    margin: 20px auto;
-    width: var(--form-width);
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 240px;
-  }
-  
-  .label {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .input {
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-bottom: 10px;
-  }
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
 
-  .checkbox {
-    margin-right: 10px;
-  }
-  
-  .button {
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    width: 100%;
-  }
+.input {
+  padding: 0.8rem;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
 
-  .actions {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .add {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .addPriority {
-    background-color: #28a745;
-    color: #fff;
-  }
+.checkbox {
+  margin-right: 10px;
+}
 
-  .formInput {
-    display: flex;
-    flex-direction: column;
-    margin: 20px auto;
-    width: var(--form-width);
-  }
-  
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formInput {
+  display: flex;
+  flex-direction: column;
+}

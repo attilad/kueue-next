@@ -1,9 +1,7 @@
 // components/ConfirmationModal.tsx
 import React from "react";
-import Modal from "react-modal";
-
-import styles from "@/styles/modal.module.css";
-import { defaultStyle } from "@/styles/reactModalStyle";
+import { Modal, AdminButton } from "@/components";
+import styles from "./ConfirmReset.module.css";
 
 interface ConfirmResetModalProps {
   isOpen: boolean;
@@ -17,27 +15,16 @@ export const ConfirmResetModal = ({
   onCancel,
 }: ConfirmResetModalProps) => {
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onCancel}
-      contentLabel="Reset the Queue"
-      style={defaultStyle}
-      ariaHideApp={false}
-    >
-      <div className={styles.content}>
-        <h2>Are you sure you want to completely reset the Queue?</h2>
-        <div className={styles.actions}>
-          <button
-            className={`${styles.button} ${styles.primary}`}
-            onClick={onConfirm}
-          >
-            Yes
-          </button>
-          <button className={styles.button} onClick={onCancel}>
-            No
-          </button>
+    <Modal show={isOpen} onClose={onCancel} title="Reset the Queue">
+      <>
+        <div className={styles.description}>
+          Are you <em>sure</em> you want to completely empty the queue?
         </div>
-      </div>
+        <div className={styles.confirmButtons}>
+          <AdminButton variant="secondary" label="Cancel" onClick={onCancel} />
+          <AdminButton variant="warning" label="Obliterate" onClick={onConfirm} />
+        </div>
+      </>
     </Modal>
   );
 };
