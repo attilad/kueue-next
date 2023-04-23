@@ -2,10 +2,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { io } from "socket.io-client";
 
-const API_URL =
-  process.env.NODE_ENV === "production"
-    ? "http://kueue-server.us-east-1.elasticbeanstalk.com"
-    : "http://localhost:3030";
+const API_URL = process.env.API_URL ?? "http://localhost:3030";
 
 export const useSingerSubscription = () => {
   const queryClient = useQueryClient();

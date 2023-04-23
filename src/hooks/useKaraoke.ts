@@ -1,10 +1,7 @@
 import axios from "axios";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
-const API_URL =
-  process.env.NODE_ENV === "production"
-    ? "http://kueue-server.us-east-1.elasticbeanstalk.com"
-    : "http://localhost:3030";
+const API_URL = process.env.API_URL || "http://localhost:3030";
 
 export const useShowSingers = () => {
   const { data, ...queryState } = useQuery({
